@@ -10,9 +10,9 @@ class Header extends Component {
 						<Link to="#" className="logo">
 							SELLER CENTER
               			</Link>
-						<button className="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+						{/* <button className="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
 							<span className="navbar-toggler-icon" />
-						</button>
+						</button> */}
 						<button className="topbar-toggler more">
 							<i className="la la-ellipsis-v" />
 						</button>

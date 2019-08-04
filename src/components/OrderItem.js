@@ -1,33 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class ProductItem extends Component {
+class OrderItem extends Component {
   render() {
-    let { index, product } = this.props;
-    let statusElm = product.status ? "Đang bán" : "Đợi duyệt";
-    let statusClass = product.status ? "btn-success" : "btn-warning";
+    let { index, order } = this.props;
+
     return (
       <tr>
         <td>{index + 1}</td>
         <td>
-          <img src={product.image} alt={product.name} width={50} />
+          <img src={order.image} alt={order.name} width={50} />
         </td>
-        <td>{product.name}</td>
-        <td>{product.SKU}</td>
-        <td>{product.warehouse}</td>
+        <td>{order.name}</td>
+        <td>{order.SKU}</td>
         <td>
-          <strike>{product.srp}</strike> {product.price}
+          <strike>{order.srp}</strike> {order.price}
         </td>
+        <td>{order.customer}</td>
+        <td>{order.phone}</td>
         <td>
           <div className="dropdown">
             <button
-              className={`btn ${statusClass} dropdown-toggle`}
+              className="btn btn-warning dropdown-toggle"
               type="button"
               id="dropdownMenu1"
               data-toggle="dropdown"
               aria-expanded="false"
             >
-              {statusElm}
+              
             </button>
             <ul
               className="dropdown-menu"
@@ -43,29 +43,21 @@ class ProductItem extends Component {
               }}
             >
               <Link to="#" className="dropdown-item">
-                <i className="la la-eye" /> Xem
+                <i className="la la-eye" /> Xem chi tiết
               </Link>
               <Link to="#" className="dropdown-item">
-                <i className="la la-edit" /> Sửa
+                <i className="la la-edit" /> Sẵn sàng giao
               </Link>
               <Link to="#" className="dropdown-item">
-                <i className="la la-trash" /> Xoá
+                <i className="la la-trash" /> Huỷ đơn hàng
               </Link>
             </ul>
           </div>
-          {/* <button className="btn btn-success">
-            <i className="la la-eye" />
-          </button>
-          <button className="btn btn-info">
-            <i className="la la-edit" />
-          </button>
-          <button className="btn btn-danger">
-            <i className="la la-trash" />
-          </button> */}
+         
         </td>
       </tr>
     );
   }
 }
 
-export default ProductItem;
+export default OrderItem;

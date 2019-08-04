@@ -21,7 +21,7 @@ const menus = [
         to: '/orders',
         activeOnlyWhenExact: true,
         icon: 'la la-check-circle',
-        count: 57,
+        count: 1,
     },
     {
         label: 'Tài chính',
