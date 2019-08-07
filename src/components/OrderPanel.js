@@ -10,7 +10,7 @@ class OrderPanel extends Component {
         <div className="content">
           <div className="container-fluid">
             <div className="row">
-              <table class="table table-head-bg-success">
+              <table className="table table-head-bg-success">
                 <thead>
                   <tr>
                     <th scope="col">#</th>

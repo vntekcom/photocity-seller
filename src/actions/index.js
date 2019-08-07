@@ -1,49 +1,56 @@
 import * as Types from './../constants/ActionTypes';
 import callApi from './../utils/apiCaller';
+import jwt from 'jsonwebtoken';
 
-//Fetch products
-export const actFetchProductsRequest = () => {
+// Call LocalStorage
+var token = localStorage.getItem('userlogin') ? JSON.parse(localStorage.getItem('userlogin')).token : '';
+var decode = jwt.decode(token);
+var id = decode ? decode.id : '';
+// console.log(decode.id);
+var headers = {
+    'fingerprint': '1',
+    'token': `${token}`,
+    'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+// LOGIN
+export const loginUser = user => {
+    return {
+        type: Types.LOGIN_USER,
+        payload: user
+    };
+};
+export const requestLoginUser = (phone, password, callback) => {
     return dispatch => {
-        return callApi('products', 'GET', null).then(res => {
-            dispatch(actFetchProducts(res.data))
-        })
-    }
-}
-export const actFetchProducts = products => {
-    return {
-        type: Types.FETCH_PRODUCTS,
-        products
-    }
-}
+        callApi('users/login', 'POST', { phone: `${phone}`, password: `${password}`, fingerprint: '1' }, null)
+            .then(res => {
+                // console.log("Res Data: ", res.data);
+                if (res.status === 200 && res.statusText === 'OK') {
+                    // alert("Đăng nhập thành công!");
+                    localStorage.setItem("userlogin", JSON.stringify(res.data));
+                    dispatch(loginUser(res.data));
+                    callback();
+                } else {
+                    // console.log(res.errors);
+                    alert("Đăng nhập sai!");
+                }
+            })
+    };
+};
 
-//Fetch Menus
-export const actFetchMenusRequest = () => {
+// USER
+export const actFetchUser = user => {
+    return {
+        type: Types.FETCH_USER,
+        user
+    }
+}
+export const actFetchUserRequest = () => {
     return dispatch => {
-        return callApi('menus', 'GET', null).then(res => {
-            dispatch(actFetchMenus(res.data))
-        })
-    }
-}
-export const actFetchMenus = menus => {
-    return {
-        type: Types.FETCH_MENUS,
-        menus
-    }
-}
-
-// Add to cart
-export const actAddToCart = (product, quantity) => {
-    return {
-        type: Types.ADD_TO_CART,
-        product,
-        quantity
-    }
-}
-
-// Delete product in cart
-export const actRemoveInCart = product => {
-    return {
-        type: Types.DELETE_IN_CART,
-        product
+        callApi(`users/${id}`, 'GET', null, headers)
+            .then(res => {
+                // console.log(res.data)
+                dispatch(actFetchUser(res.data))
+            })
     }
 }

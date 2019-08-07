@@ -1,8 +1,14 @@
+// USER
+export const LOGIN_USER="LOGIN_USER";
+export const FETCH_USER = 'FETCH_USER';
+// PRODUCT
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
-
+// ORDER
 export const FETCH_ORDERS = 'FETCH_ORDERS';
 export const UPDATE_ORDERS = 'UPDATE_ORDERS';
 export const DELETE_ORDERS = 'DELETE_ORDERS';
+
+

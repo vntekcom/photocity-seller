@@ -35,7 +35,7 @@ const menus = [
 const MenuLink = ({ label, to, activeOnlyWhenExact, icon, count }) => {
     return (
         <Route path={to} exact={activeOnlyWhenExact} children={({ match }) => {
-            var active = match ? 'active' : '';
+            let active = match ? 'active' : '';
             return (
                 <li className={`nav-item ${active}`}>
                     <Link to={to}>
@@ -51,7 +51,6 @@ const MenuLink = ({ label, to, activeOnlyWhenExact, icon, count }) => {
 }
 
 class Nav extends Component {
-
     render() {
         return (
             <Fragment>

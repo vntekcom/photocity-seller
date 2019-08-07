@@ -2,7 +2,14 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
+
+	onLogout = event => {
+		localStorage.setItem('userlogin', '');
+		localStorage.clear();
+	}
+
 	render() {
+		let { user } = this.props;
 		return (
 			<Fragment>
 				<div className="main-header">
@@ -19,7 +26,7 @@ class Header extends Component {
 					</div>
 					<nav className="navbar navbar-header navbar-expand-lg">
 						<div className="container-fluid">
-							<form className="navbar-left navbar-form nav-search mr-md-3" action>
+							<form className="navbar-left navbar-form nav-search mr-md-3" >
 								<div className="input-group">
 									<input type="text" placeholder="Tìm kiếm..." className="form-control" />
 									<div className="input-group-append">
@@ -92,7 +99,7 @@ class Header extends Component {
 								<li className="nav-item dropdown">
 									<Link to="#" className="dropdown-toggle profile-pic" data-toggle="dropdown" aria-expanded="false">
 										<img src="//sale.kingcom.com.vn/img/logo.jpg" alt="kingcom store" className="img-circle" width={36} />
-										<span>KingCom Store</span>
+										<span>{user.fullName}</span>
 									</Link>
 									<ul className="dropdown-menu dropdown-user">
 										<li>
@@ -110,7 +117,7 @@ class Header extends Component {
 											<i className="ti-settings" /> Cài đặt shop
 										</Link>
 										<div className="dropdown-divider" />
-										<Link to="#" className="dropdown-item" >
+										<Link to="#" className="dropdown-item" onClick={this.onLogout}>
 											<i className="fa fa-power-off" /> Đăng xuất
 										</Link>
 									</ul>

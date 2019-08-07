@@ -28,13 +28,13 @@ class ProductPanel extends Component {
             {/* <h4 className="page-title">Sản phẩm</h4> */}
             <div className="row">
               <div className="col-md-12">
-                <button class="btn btn-primary mb-10" onClick={this.showForm}>
+                <button className="btn btn-primary mb-10" onClick={this.showForm}>
                   {btnLabel}
                 </button>
                 {FormElm}
               </div>
 
-              <table class="table table-head-bg-success">
+              <table className="table table-head-bg-success">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
