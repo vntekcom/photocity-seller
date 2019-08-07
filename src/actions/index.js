@@ -4,8 +4,7 @@ import jwt from 'jsonwebtoken';
 
 // Call LocalStorage
 var token = localStorage.getItem('userlogin') ? JSON.parse(localStorage.getItem('userlogin')).token : '';
-var decode = jwt.decode(token);
-var id = decode ? decode.id : '';
+var id = jwt.decode(token) ? jwt.decode(token).id : '';
 // console.log(decode.id);
 var headers = {
     'fingerprint': '1',
@@ -28,10 +27,11 @@ export const requestLoginUser = (phone, password, callback) => {
                 if (res.status === 200 && res.statusText === 'OK') {
                     // alert("Đăng nhập thành công!");
                     localStorage.setItem("userlogin", JSON.stringify(res.data));
-                    dispatch(loginUser(res.data));
+                    var decode = jwt.decode(res.data.token);
+                    console.log(decode)
+                    dispatch(loginUser(decode));
                     callback();
                 } else {
-                    // console.log(res.errors);
                     alert("Đăng nhập sai!");
                 }
             })

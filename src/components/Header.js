@@ -106,8 +106,8 @@ class Header extends Component {
 											<div className="user-box">
 												<div className="u-img"><i className="la la-phone la-3x text-danger" /></div>
 												<div className="u-text">
-													<h4 className="font-weight-bold">0703120226</h4>
-													<p className="text-muted">kingcom@phototicy.vn</p>
+													<h4 className="font-weight-bold">{user.phone}</h4>
+													<p className="text-muted">{user.userType}</p>
 													{/* <Link to="#" href="profile.html" className="btn btn-rounded btn-danger btn-sm">View Profile</Link>*/}
 												</div>
 											</div>
