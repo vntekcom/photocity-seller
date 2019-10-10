@@ -3,31 +3,10 @@ import { Link, Route } from 'react-router-dom';
 
 const menus = [
     {
-        label: 'Tổng hợp',
+        label: 'Trang chủ',
         to: '/',
         activeOnlyWhenExact: true,
         icon: 'la la-dashboard',
-        count: null,
-    },
-    {
-        label: 'Sản phẩm',
-        to: '/products',
-        activeOnlyWhenExact: true,
-        icon: 'la la-archive',
-        count: 15,
-    },
-    {
-        label: 'Đơn hàng',
-        to: '/orders',
-        activeOnlyWhenExact: true,
-        icon: 'la la-check-circle',
-        count: 1,
-    },
-    {
-        label: 'Tài chính',
-        to: '/reports',
-        activeOnlyWhenExact: true,
-        icon: 'la la-dollar',
         count: null,
     }
 ]
@@ -58,61 +37,6 @@ class Nav extends Component {
                     <div className="scrollbar-inner sidebar-wrapper">
                         <ul className="nav">
                             {this.showMenu(menus)}
-                            {/* <li className="nav-item active">
-                                <a href="index.html">
-                                    <i className="la la-dashboard" />
-                                    <p>Dashboard</p>
-                                    <span className="badge badge-count">5</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="components.html">
-                                    <i className="la la-table" />
-                                    <p>Components</p>
-                                    <span className="badge badge-count">14</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="forms.html">
-                                    <i className="la la-keyboard-o" />
-                                    <p>Forms</p>
-                                    <span className="badge badge-count">50</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="tables.html">
-                                    <i className="la la-th" />
-                                    <p>Tables</p>
-                                    <span className="badge badge-count">6</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="notifications.html">
-                                    <i className="la la-bell" />
-                                    <p>Notifications</p>
-                                    <span className="badge badge-success">3</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="typography.html">
-                                    <i className="la la-font" />
-                                    <p>Typography</p>
-                                    <span className="badge badge-danger">25</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="icons.html">
-                                    <i className="la la-fonticons" />
-                                    <p>Icons</p>
-                                </a>
-                            </li> */}
-
-                            <li className="nav-item update-pro ">
-                                <button data-toggle="modal" data-target="#modalUpdate">
-                                    <i className="la la-hand-pointer-o" />
-                                    <p className="suppercase">Đặt lệnh rút tiền</p>
-                                </button>
-                            </li>
                         </ul>
                     </div>
                 </div>

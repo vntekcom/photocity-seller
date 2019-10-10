@@ -1,12 +1,8 @@
 import { combineReducers } from 'redux';
-import products from './products';
-import orders from './orders';
-import user from './user';
+import imei from './imei';
 
 const appReducers = combineReducers({
-    products,
-    orders,
-    user
+    imei
 })
 
 export default appReducers;
